@@ -14,6 +14,15 @@
   color: white;
 }
 
+.OrgaList{
+  width: 10%;
+    margin : 15px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,7 +46,8 @@
 }
 
 .Button{
-  background-color: #61dafb;
+  background-color: #282c34;
+  color: azure;
 }
 
 .App-link {

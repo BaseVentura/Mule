@@ -1,15 +1,15 @@
 import React from 'react';
 import style from './Organisation.module.css'
 
-function organisation(props) {
+function Organisation(props) {
     return (
-        <div className ={style.Person}>
+        <div className ={style.Orga}>
       
-        <p  onClick={this.props.click}>I am {this.props.name} and i am {this.props.age} years old</p>
-        <p >{this.props.children}</p>
-        <input  type="text" onChange={this.props.changed} value={this.props.name}/>
+        <p> Organisation: {props.orga}</p>
+        <p>Website: <a href={props.url}>  {props.url}</a></p>
+        <p> Bereich: {props.label}</p>
       </div>
     );
 }
 
-export default organisation;
+export default Organisation;
