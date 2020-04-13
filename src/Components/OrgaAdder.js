@@ -6,7 +6,7 @@ function OrgaAdder(props) {
         <div className={styles.OrgaAdder}>
         <div className="title">Organisation hinzufügen</div>
          <div>
-            <input type="text" defaultValue="Enter Name"></input>
+            <input id="Name" type="text" defaultValue="Enter Name"></input>
          </div>
          <div>   
             <input type="text" defaultValue="Enter URL"></input>
@@ -14,7 +14,7 @@ function OrgaAdder(props) {
         <div> 
          <input type="text" defaultValue="Enter Label"></input>
         </div>
-         <button>Add</button> 
+         <button onClick={()=>props.click(("newOrga", "New URL", "NewLabel"))}>Add</button> 
         </div>
     );
 }

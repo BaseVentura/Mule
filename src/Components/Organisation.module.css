@@ -1,8 +1,9 @@
 .Orga{
     
-    margin : auto;
+    margin : 10px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 15px;
     text-align: center;
+    width: 10%;
 }
