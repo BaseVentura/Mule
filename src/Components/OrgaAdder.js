@@ -4,16 +4,18 @@ import styles from './OrgaAdder.module.css'
 function OrgaAdder(props) {
 
 
-    const [name, setName] =useState('');
+    let name ='';
     const [url, setUrl] =useState('');
     const [label, setLabel] =useState('');
-
+    // function nameChangeHandler(event){
+    //     name=event.target.value
+    // }
     
     return (
         <div className={styles.OrgaAdder}>
         <div className="title">Organisation hinzufügen</div>
          <div>
-            <input onChange={(event) => setName(event.target.value)} type="text" defaultValue="Enter Name"></input>
+            <input onChange={(event) => name=event.target.value} type="text" defaultValue="Enter Name"></input>
          </div>
          <div>   
             <input onChange={(event)=> setUrl(event.target.value)} type="text" defaultValue="Enter URL"></input>
