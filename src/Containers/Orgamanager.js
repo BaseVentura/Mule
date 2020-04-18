@@ -36,7 +36,7 @@ class Orgamanager extends Component {
             <div>
                 <OrgaList Orgas={this.state.Orgas}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder show={this.state.addOrga} hide={this.ToggleOrgaAdder}/>
+                <OrgaAdder show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>
         );
     }
