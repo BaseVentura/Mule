@@ -1,8 +1,10 @@
 .OrgaAdder{
+    position: relative;
     width: 20%;
     margin : 15px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+    z-index: 1;
 }
