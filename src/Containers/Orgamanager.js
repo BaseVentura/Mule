@@ -17,7 +17,7 @@ class Orgamanager extends Component {
       //const ContentID =this.state.ContentID;
       
       const doesShow =this.state.addOrga;
-    this.setState({addOrga: !doesShow})
+      this.setState({addOrga: !doesShow})
     }
     ShowOrgaHandler = () => {
       this.setState({ContentID:0})
@@ -34,7 +34,7 @@ class Orgamanager extends Component {
     render() {
         return (
             <div>
-                <OrgaList Orgas={this.state.Orgas}/>
+                <OrgaList Orgas={this.state.Orgas} filter="Soziales"/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
                 <OrgaAdder show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>
