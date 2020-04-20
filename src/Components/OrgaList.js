@@ -3,16 +3,19 @@ import Organisation from './Organisation'
 // import styles from '../App.module.css'
 
 
-function OrgaList({Orgas,filter}) {
-   
+function OrgaList({Labels,Orgas,filter}) {
+  //  let label=null;
     return (
         <div >
             {Orgas.map((orga, index) => {
-              return (orga.Label===filter ? <Organisation
+              var label = Labels.find((element)=> element.id===orga.LabelId);
+              return (
+              <Organisation
                 orga = {orga.Orga}
                 url ={orga.URL}
-                label = {orga.Label}
-        /> : null);  
+                label = {label.name}
+        /> 
+        );  
       })}
         </div>
     );

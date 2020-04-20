@@ -6,11 +6,17 @@ import OrgaAdder from '../Components/OrgaAdder';
 class Orgamanager extends Component {
     
     state = { Orgas:[
-        {Orga: "Orga1", URL: "http://orga1.org", Label: "Soziales"},
-        {Orga: "Orga2", URL: "http://orga2.org", Label: "Soziales"},
-        {Orga: "Orga3", URL: "http://orga3.org", Label: "Umwelt"}],
+        {Orga: "Orga1", URL: "http://orga1.org", LabelId: 0},
+        {Orga: "Orga2", URL: "http://orga2.org", LabelId: 0},
+        {Orga: "Orga3", URL: "http://orga3.org", LabelId: 1}],
+        Labels:[
+          {name: "Soziales", id: 0},
+          {name: "Umwelt", id: 1}
+        ],
+        // filters:[{name: "soziales", id:0},{name: "umwelt", id:1}],
         addOrga: false,
-        ContentID: 0
+        ContentID: 0,
+        activeFilterID: 0
     }
   
     ToggleOrgaAdder = () => {
@@ -30,11 +36,18 @@ class Orgamanager extends Component {
   
       this.setState({Orgas: orgas});
     }
+    activateFilter = (filter) => {
+      console.log(filter);
+      this.setState({activeFilter: filter})
+    }
+    
     
     render() {
         return (
             <div>
-                <OrgaList Orgas={this.state.Orgas} filter="Soziales"/>
+                <button name="soziales" className={styles.Button} onClick={(event)=>this.activateFilter(event.target.name)}>Soziales</button>
+                <div className="filter"></div>
+                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilter}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
                 <OrgaAdder show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>
