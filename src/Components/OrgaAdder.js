@@ -1,26 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './OrgaAdder.module.css'
 
-function OrgaAdder({hide,click,show}) {
+function OrgaAdder({labels,hide,click,show}) {
 
-
-    
-    let name ='';
-    let url='';
-    let label='';
     const showHideClassName = show ? styles.showDiv : styles.hideDiv;
     // function nameChangeHandler(event){
     //     name=event.target.value
     // }
-    function buildName (input){
-        name=input;
+    const [name,setName] = useState();
+    const [URL,setURL] = useState();
+    const [Label,setLabel] = useState([]);  
+    //setLabel([]);
+   
+
+    const buildLabel = (newlabel) => {
+        const newlabelArr = [...Label]
+        newlabelArr.push(newlabel);
+
+        setLabel(newlabelArr);
     }
-    function buildURL (input){
-        url=input;
+    const deselectLabel = (labelid) => {
+        const newlabelArr = [...Label]
+        newlabelArr.splice(newlabelArr.indexOf(labelid));
+        setLabel(newlabelArr);
     }
-    function buildLabel (input){
-        label=input;
-    }
+
     return (
         <div className={showHideClassName}>
             <div className={styles.modal}>
@@ -30,15 +34,20 @@ function OrgaAdder({hide,click,show}) {
                         Organisation hinzufügen     
                     </div>
                     <div>
-                        <input onChange={(event) => buildName(event.target.value)} type="text" defaultValue="Enter Name"></input>
+                        <input onChange={(event) => setName(event.target.value)} type="text" placeholder="Enter Name"></input>
                     </div>
                     <div>   
-                        <input onChange={(event)=> buildURL(event.target.value)} type="text" defaultValue="Enter URL"></input>
+                        <input onChange={(event)=> setURL(event.target.value)} type="text" placeholder="Enter URL"></input>
                     </div>
                     <div> 
-                    <input onChange={(event)=> buildLabel(event.target.value)} type="text" defaultValue="Enter Label"></input>
+                    {labels.map(
+                        (label, ix )=> {
+                            return (<div key={label.id} className="Bagde" onClick={(event)=> buildLabel(label.id)}>{label.name}</div>)//das mit dem Label funktioniert so nicht
+                        }
+                        )
+                    }
                     </div>
-                    <button onClick={()=>click(name, url, label)}>Add</button> 
+                    <button onClick={()=>click(name, URL, Label)}>Add</button> 
                 </div>
             </div>
         </div>

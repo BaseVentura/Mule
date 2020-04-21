@@ -29,9 +29,9 @@ class Orgamanager extends Component {
     ShowOrgaHandler = () => {
       this.setState({ContentID:0})
     }
-    AddOrga = (name, URL, Label) => {
+    AddOrga = (name, URL, LabelIds) => {
       const orgas = [...this.state.Orgas];
-      const newOrga = {Orga: name, URL: URL, Label: Label}
+      const newOrga = {Orga: name, URL: URL, LabelIds: LabelIds}
   
       orgas.push(newOrga);
   
@@ -50,7 +50,7 @@ class Orgamanager extends Component {
                 <div className="filter"></div>
                 <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilter}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
+                <OrgaAdder labels={this.state.Labels} show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>
         );
     }
