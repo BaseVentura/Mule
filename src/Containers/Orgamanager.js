@@ -6,14 +6,15 @@ import OrgaAdder from '../Components/OrgaAdder';
 class Orgamanager extends Component {
     
     state = { Orgas:[
-        {Orga: "Orga1", URL: "http://orga1.org", LabelId: 0},
-        {Orga: "Orga2", URL: "http://orga2.org", LabelId: 0},
-        {Orga: "Orga3", URL: "http://orga3.org", LabelId: 1}],
+        {Orga: "Stadtacker GI", URL: "http://orga1.org", LabelIds: [1], Id:0},
+        {Orga: "Freiwilligen Zentrum", URL: "http://orga2.org", LabelIds: [0],Id:1},
+        {Orga: "Friedelhausen", URL: "http://orga3.org", LabelIds: [0,1], Id:2}],
         Labels:[
           {name: "Soziales", id: 0},
-          {name: "Umwelt", id: 1}
+          {name: "Umwelt", id: 1},
+          {name: "Mobilität", id: 2},
+          {name: "Politik", id: 3}
         ],
-        // filters:[{name: "soziales", id:0},{name: "umwelt", id:1}],
         addOrga: false,
         ContentID: 0,
         activeFilterID: 0

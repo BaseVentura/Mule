@@ -6,3 +6,23 @@
     text-align: center;
     width: 30%; 
 }
+.Badge {
+    display: inline-block;
+    right: 16px;
+    height: 24px;
+    font-size: 16px;
+    color: white;
+    width: 30%;
+    top: 50%;
+    margin: 10px;
+    background-color: #282c34;
+    padding: 4px ;
+    text-align: center;
+    border-radius: 7px;
+  }
+  .Title {
+    left: 8px;
+    top: 50%;
+    font-size: 24px;
+    margin-top: -11px;
+  }
