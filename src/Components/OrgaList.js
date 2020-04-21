@@ -8,12 +8,14 @@ function OrgaList({Labels,Orgas,filter}) {
     return (
         <div >
             {Orgas.map((orga, index) => {
-              var label = Labels.find((element)=> element.id===orga.LabelId);
+              //var label = Labels.find((element)=> element.id===orga.LabelIds);
+              var labels = Labels.filter((e)=> orga.LabelIds.includes(e.id));
               return (
               <Organisation
                 orga = {orga.Orga}
                 url ={orga.URL}
-                label = {label.name}
+                labels = {labels}
+                key={orga.Id}
         /> 
         );  
       })}
