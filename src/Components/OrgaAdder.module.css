@@ -53,3 +53,31 @@
   .hideDiv {
     display: none;
   }
+.Badge {
+    display: inline-block;
+    right: 16px;
+    height: 24px;
+    font-size: 16px;
+    color: white;
+    width: 15%;
+    top: 50%;
+    margin: 10px;
+    background-color: #282c34;
+    padding: 4px ;
+    text-align: center;
+    border-radius: 7px;
+}
+.BadgeInactive {
+    display: inline-block;
+    right: 16px;
+    height: 24px;
+    font-size: 16px;
+    color: white;
+    width: 15%;
+    top: 50%;
+    margin: 10px;
+    background-color: #5e6167;
+    padding: 4px ;
+    text-align: center;
+    border-radius: 7px;
+}

@@ -10,19 +10,26 @@ function OrgaAdder({labels,hide,click,show}) {
     const [name,setName] = useState();
     const [URL,setURL] = useState();
     const [Label,setLabel] = useState([]);  
+
+    let labelStyle = styles.BadgeInactive
     //setLabel([]);
    
+    const getLabelStyle = (active) =>  active? styles.Badge : styles.BadgeInactive;
 
+    
     const buildLabel = (newlabel) => {
+        Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
+    }
+    const selectLabel = (label) => {
         const newlabelArr = [...Label]
-        newlabelArr.push(newlabel);
-
+        newlabelArr.push(label);
         setLabel(newlabelArr);
     }
-    const deselectLabel = (labelid) => {
+    const deselectLabel = (label) => {
         const newlabelArr = [...Label]
-        newlabelArr.splice(newlabelArr.indexOf(labelid));
+        newlabelArr.splice(newlabelArr.indexOf(label));
         setLabel(newlabelArr);
+        console.log("deselect");
     }
 
     return (
@@ -42,11 +49,12 @@ function OrgaAdder({labels,hide,click,show}) {
                     <div> 
                     {labels.map(
                         (label, ix )=> {
-                            return (<div key={label.id} className="Bagde" onClick={(event)=> buildLabel(label.id)}>{label.name}</div>)//das mit dem Label funktioniert so nicht
+                            return (<div key={label.id} className={labelStyle} onClick={(event)=> buildLabel(label)}>{label.name}</div>)//das mit dem Label funktioniert so nicht
                         }
                         )
                     }
                     </div>
+                    {/* Ich gebe hier als Label ein Arry mit Objekten zurück brauche aber eigentlich das Arry mt den IDS */}
                     <button onClick={()=>click(name, URL, Label)}>Add</button> 
                 </div>
             </div>

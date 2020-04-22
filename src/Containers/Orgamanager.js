@@ -29,9 +29,9 @@ class Orgamanager extends Component {
     ShowOrgaHandler = () => {
       this.setState({ContentID:0})
     }
-    AddOrga = (name, URL, LabelIds) => {
+    AddOrga = (name, URL, Labels) => {
       const orgas = [...this.state.Orgas];
-      const newOrga = {Orga: name, URL: URL, LabelIds: LabelIds}
+      const newOrga = {Orga: name, URL: URL, LabelIds: Labels.id}
   
       orgas.push(newOrga);
   
