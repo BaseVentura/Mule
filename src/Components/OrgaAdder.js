@@ -19,6 +19,7 @@ function OrgaAdder({labels,hide,click,show}) {
     
     const buildLabel = (newlabel) => {
         Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
+        console.log(Label);
     }
     const selectLabel = (label) => {
         const newlabelArr = [...Label]
@@ -49,13 +50,12 @@ function OrgaAdder({labels,hide,click,show}) {
                     <div> 
                     {labels.map(
                         (label, ix )=> {
-                            return (<div key={label.id} className={labelStyle} onClick={(event)=> buildLabel(label)}>{label.name}</div>)//das mit dem Label funktioniert so nicht
+                            return (<div><input type="checkbox" key={label.id} id={label.id} className={labelStyle} onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)//das mit dem Label funktioniert so nicht
                         }
                         )
                     }
                     </div>
-                    {/* Ich gebe hier als Label ein Arry mit Objekten zurück brauche aber eigentlich das Arry mt den IDS */}
-                    <button onClick={()=>click(name, URL, Label)}>Add</button> 
+                    <button onClick={()=>click(name, URL, Label, Date.now())}>Add</button> 
                 </div>
             </div>
         </div>
