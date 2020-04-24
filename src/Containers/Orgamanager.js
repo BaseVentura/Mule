@@ -17,7 +17,8 @@ class Orgamanager extends Component {
         ],
         addOrga: false,
         ContentID: 0,
-        activeFilterID: 0
+        activeFilterID: [],
+        FilterIsSet: false
     }
   
     ToggleOrgaAdder = () => {
@@ -39,17 +40,23 @@ class Orgamanager extends Component {
       this.setState({Orgas: orgas});
     }
     activateFilter = (filter) => {
-      console.log(filter);
-      this.setState({activeFilter: filter})
+      console.log(this.state.activeFilterID);
+      const Filter = [...this.state.activeFilterID];
+      !Filter.includes(filter)? Filter.push(filter): Filter.splice(Filter.indexOf(filter));
+      console.log("Filter nach push"+filter);
+      this.setState({activeFilterID: Filter , FilterIsSet: true})
+      console.log("FilterState:"+this.state.activeFilterID);
     }
     
     
     render() {
         return (
             <div>
-                <button name="soziales" className={styles.Button} onClick={(event)=>this.activateFilter(event.target.name)}>Soziales</button>
+                {this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);//COntinue here
+
+                })}
                 <div className="filter"></div>
-                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilter}/>
+                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
                 <OrgaAdder labels={this.state.Labels} show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>

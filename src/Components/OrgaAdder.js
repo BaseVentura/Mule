@@ -10,12 +10,6 @@ function OrgaAdder({labels,hide,click,show}) {
     const [name,setName] = useState();
     const [URL,setURL] = useState();
     const [Label,setLabel] = useState([]);  
-
-    let labelStyle = styles.BadgeInactive
-    //setLabel([]);
-   
-    const getLabelStyle = (active) =>  active? styles.Badge : styles.BadgeInactive;
-
     
     const buildLabel = (newlabel) => {
         Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
@@ -50,7 +44,7 @@ function OrgaAdder({labels,hide,click,show}) {
                     <div> 
                     {labels.map(
                         (label, ix )=> {
-                            return (<div><input type="checkbox" key={label.id} id={label.id} className={labelStyle} onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)//das mit dem Label funktioniert so nicht
+                            return (<div><input type="checkbox" key={label.id} id={label.id}  onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)//das mit dem Label funktioniert so nicht
                         }
                         )
                     }
