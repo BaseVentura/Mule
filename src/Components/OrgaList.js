@@ -10,14 +10,17 @@ function OrgaList({Labels,Orgas,filter}) {
             {Orgas.map((orga) => {
               //var label = Labels.find((element)=> element.id===orga.LabelIds);
               
-              var labels = Labels.filter((e)=> orga.LabelIds.includes(e.id));  
+              var labels = Labels.filter((e)=> orga.LabelIds.includes(e.id));
+              
+              const filtered = labels.some(l=> filter.includes(l.id))  
+              
               return (
-              <Organisation
+              filtered || filter.length===0 ? <Organisation
                 orga = {orga.Orga}
                 url ={orga.URL}
                 labels = {labels}
                 key={orga.Id}
-        /> 
+        /> : null
         );  
       })}
         </div>

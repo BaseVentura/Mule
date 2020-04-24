@@ -21,15 +21,15 @@ class Orgamanager extends Component {
         FilterIsSet: false
     }
   
-    ToggleOrgaAdder = () => {
-      //const ContentID =this.state.ContentID;
-      
+    ToggleOrgaAdder = () => { 
       const doesShow =this.state.addOrga;
       this.setState({addOrga: !doesShow})
     }
+
     ShowOrgaHandler = () => {
       this.setState({ContentID:0})
     }
+
     AddOrga = (name, URL, LabelIds, OrgaId) => {
 
       const orgas = [...this.state.Orgas];
@@ -39,15 +39,12 @@ class Orgamanager extends Component {
   
       this.setState({Orgas: orgas});
     }
+
     activateFilter = (filter) => {
-      console.log(this.state.activeFilterID);
       const Filter = [...this.state.activeFilterID];
       !Filter.includes(filter)? Filter.push(filter): Filter.splice(Filter.indexOf(filter));
-      console.log("Filter nach push"+filter);
       this.setState({activeFilterID: Filter , FilterIsSet: true})
-      console.log("FilterState:"+this.state.activeFilterID);
     }
-    
     
     render() {
         return (
