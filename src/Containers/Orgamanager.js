@@ -42,7 +42,7 @@ class Orgamanager extends Component {
 
     activateFilter = (filter) => {
       const Filter = [...this.state.activeFilterID];
-      !Filter.includes(filter)? Filter.push(filter): Filter.splice(Filter.indexOf(filter));
+      !Filter.includes(filter)? Filter.push(filter) : Filter.splice(Filter.indexOf(filter),1);
       this.setState({activeFilterID: Filter , FilterIsSet: true})
     }
     
