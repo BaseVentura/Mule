@@ -59,6 +59,6 @@ class Orgamanager extends Component {
             </div>
         );
     }
-}
+  }
 
 export default Orgamanager;
