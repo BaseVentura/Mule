@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './OrgaAdder.module.css'
+import LabelControl from './LabelControl';
 
 function OrgaAdder({labels,hide,click,show}) {
 
@@ -44,7 +45,8 @@ function OrgaAdder({labels,hide,click,show}) {
                     <div> 
                     {labels.map(
                         (label, ix )=> {
-                            return (<div><input type="checkbox" key={label.id} id={label.id}  onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)//das mit dem Label funktioniert so nicht
+                            // return (<div><input type="checkbox" key={label.id} id={label.id}  onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)
+                            return (<LabelControl labelIds={Label} LabelName={label.name} key={label.id} id={label.id}  clicked={(event)=> buildLabel(label.id)}/>)
                         }
                         )
                     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import OrgaList from '../Components/OrgaList';
 import styles from '../App.module.css'
 import OrgaAdder from '../Components/OrgaAdder';
+import LabelControl from '../Components/LabelControl';
 
 class Orgamanager extends Component {
     
@@ -49,7 +50,8 @@ class Orgamanager extends Component {
     render() {
         return (
             <div>
-                {this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);//COntinue here
+                {this.state.Labels.map((label) => { return (<LabelControl  LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>);// Hier weitermachen!!! labelIDS muss ich ersr Bauen{this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);
+                
 
                 })}
                 <div className="filter"></div>
