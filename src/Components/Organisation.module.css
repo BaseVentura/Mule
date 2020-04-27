@@ -26,3 +26,10 @@
     font-size: 24px;
     margin-top: -11px;
   }
+  .close {
+    color: black;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}

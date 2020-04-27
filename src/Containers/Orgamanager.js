@@ -40,6 +40,9 @@ class Orgamanager extends Component {
   
       this.setState({Orgas: orgas});
     }
+    deleteOrga = (index) =>{
+      //Continue here
+    }
 
     activateFilter = (filter) => {
       const Filter = [...this.state.activeFilterID];
@@ -47,13 +50,15 @@ class Orgamanager extends Component {
       this.setState({activeFilterID: Filter , FilterIsSet: true})
     }
     
+    
+    
     render() {
+      
         return (
             <div>
-                {this.state.Labels.map((label) => { return (<LabelControl  LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>);// Hier weitermachen!!! labelIDS muss ich ersr Bauen{this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);
+               {this.state.Labels.map((label) => { return (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>); 
                 
-
-                })}
+                 })}
                 <div className="filter"></div>
                 <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
@@ -64,3 +69,7 @@ class Orgamanager extends Component {
   }
 
 export default Orgamanager;
+
+
+
+//{this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);

@@ -5,7 +5,7 @@ function Organisation(props) {
     return (
         <div className ={style.Orga}>
       
-        <div className={style.Title}>{props.orga}</div>
+        <div className={style.Title}>{props.orga}<span className={style.close}>×</span></div>
         <p>Website: <a href={props.url}>  {props.url}</a></p>
         <span>
             {props.labels.map((e, ix)=>{return (<div className={style.Badge} key={e.id}>{e.name}</div>);})}
