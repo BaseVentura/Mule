@@ -3,7 +3,7 @@ import Organisation from './Organisation'
 // import styles from '../App.module.css'
 
 
-function OrgaList({Labels,Orgas,filter}) {
+function OrgaList({Labels,Orgas,filter,clickDelete}) {
   //  let label=null;
     return (
         <div >
@@ -20,6 +20,8 @@ function OrgaList({Labels,Orgas,filter}) {
                 url ={orga.URL}
                 labels = {labels}
                 key={orga.Id}
+                id={orga.id}
+                clickDelete={clickDelete}
         /> : null
         );  
       })}

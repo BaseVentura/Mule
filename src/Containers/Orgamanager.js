@@ -41,7 +41,11 @@ class Orgamanager extends Component {
       this.setState({Orgas: orgas});
     }
     deleteOrga = (index) =>{
+      const orgas = [...this.state.Orgas];
+      orgas.splice(index, 1)
+      console.log(orgas);
       //Continue here
+      this.setState({Orgas: orgas});
     }
 
     activateFilter = (filter) => {
@@ -50,17 +54,13 @@ class Orgamanager extends Component {
       this.setState({activeFilterID: Filter , FilterIsSet: true})
     }
     
-    
-    
     render() {
       
         return (
             <div>
-               {this.state.Labels.map((label) => { return (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>); 
-                
-                 })}
+               {this.state.Labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>))}
                 <div className="filter"></div>
-                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID}/>
+                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
                 <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
                 <OrgaAdder labels={this.state.Labels} show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
             </div>

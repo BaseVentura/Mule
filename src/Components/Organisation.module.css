@@ -27,9 +27,9 @@
     margin-top: -11px;
   }
   .close {
-    color: black;
+    color: darkred;
     float: right;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
 }
