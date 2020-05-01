@@ -1,5 +1,6 @@
 import React from 'react';
 import Organisation from './Organisation'
+import PropTypes from 'prop-types';
 // import styles from '../App.module.css'
 
 
@@ -26,6 +27,12 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
             })}
         </div>
       );
+}
+OrgaList.propTypes={
+  Orgas: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.arrayOf(PropTypes.number).isRequired,
+  clickDelete: PropTypes.func,
+  Labels: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default OrgaList;

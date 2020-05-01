@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Organisation.module.css'
+import PropTypes from 'prop-types';
 
 function Organisation({orga,clickDelete,id,url,labels}) {
     return (
@@ -13,5 +14,11 @@ function Organisation({orga,clickDelete,id,url,labels}) {
       </div>
     );
 }
-
+Organisation.propTypes={
+    orga: PropTypes.string.isRequired,
+    clickDelete: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    labels: PropTypes.arrayOf(PropTypes.object)
+}
 export default Organisation;
