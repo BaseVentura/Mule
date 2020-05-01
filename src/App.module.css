@@ -46,8 +46,10 @@
 }
 
 .Button{
-  background-color: #282c34;
+  background-color: #88BA2A;
   color: azure;
+  border-radius: 5px;
+  
 }
 
 .App-link {

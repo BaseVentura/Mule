@@ -37,7 +37,7 @@
 }
 .modalHeader {
     padding: 2px 16px;
-    background-color: #282c34;
+    background-color: #88BA2A;
     color: white;
 }
 .close {
@@ -45,6 +45,7 @@
     float: right;
     font-size: 18px;
     font-weight: bold;
+    cursor: pointer;
 }
 .showDiv {
     display: block;
