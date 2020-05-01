@@ -19,7 +19,7 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
                 url ={orga.URL}
                 labels = {labels}
                 key={orga.Id}
-                id={orga.id}
+                id={orga.Id}
                 clickDelete={clickDelete}
                 /> : null
               );  
