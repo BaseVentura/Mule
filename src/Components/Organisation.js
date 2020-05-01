@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './Organisation.module.css'
 
-function Organisation(props) {
+function Organisation({orga,clickDelete,id,url,labels}) {
     return (
         <div className ={style.Orga}>
       
-        <div className={style.Title}>{props.orga}<span className={style.close} onClick={()=> props.clickDelete(props.id)}>×</span></div>
-        <p>Website: <a href={props.url}>  {props.url}</a></p>
+        <div className={style.Title}>{orga}<span className={style.close} onClick={()=> clickDelete(id)}>×</span></div>
+        <p>Website: <a href={url}>  {url}</a></p>
         <span>
-            {props.labels.map((e, ix)=>{return (<div className={style.Badge} key={e.id}>{e.name}</div>);})}
+            {labels.map((e, ix)=>{return (<div className={style.Badge} key={e.id}>{e.name}</div>);})}
         </span>
       </div>
     );
