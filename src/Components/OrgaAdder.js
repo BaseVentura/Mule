@@ -5,9 +5,7 @@ import LabelControl from './LabelControl';
 function OrgaAdder({labels,hide,click,show}) {
 
     const showHideClassName = show ? styles.showDiv : styles.hideDiv;
-    // function nameChangeHandler(event){
-    //     name=event.target.value
-    // }
+    
     const [name,setName] = useState();
     const [URL,setURL] = useState();
     const [Label,setLabel] = useState([]);  
@@ -44,10 +42,14 @@ function OrgaAdder({labels,hide,click,show}) {
                     </div>
                     <div> 
                     {labels.map(
-                        (label, ix )=> {
-                            // return (<div><input type="checkbox" key={label.id} id={label.id}  onClick={(event)=> buildLabel(label.id)}/><label htmlFor={label.id}>{label.name}</label></div>)
-                            return (<LabelControl labelIds={Label} LabelName={label.name} key={label.id} id={label.id}  clicked={(event)=> buildLabel(label.id)}/>)
-                        }
+                        (label, ix )=>  (<LabelControl 
+                            labelIds={Label} 
+                            LabelName={label.name} 
+                            key={label.id} 
+                            id={label.id}  
+                            clicked={(event)=> buildLabel(label.id)}/>
+                            )
+                        
                         )
                     }
                     </div>

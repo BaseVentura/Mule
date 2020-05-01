@@ -8,7 +8,6 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
     return (
         <div >
             {Orgas.map((orga) => {
-              //var label = Labels.find((element)=> element.id===orga.LabelIds);
               
               var labels = Labels.filter((e)=> orga.LabelIds.includes(e.id));
               
@@ -22,11 +21,11 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
                 key={orga.Id}
                 id={orga.id}
                 clickDelete={clickDelete}
-        /> : null
-        );  
-      })}
+                /> : null
+              );  
+            })}
         </div>
-    );
+      );
 }
 
 export default OrgaList;

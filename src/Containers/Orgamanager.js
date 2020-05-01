@@ -22,16 +22,12 @@ class Orgamanager extends Component {
         FilterIsSet: false
     }
   
-    ToggleOrgaAdder = () => { 
+    toggleOrgaAdder = () => { 
       const doesShow =this.state.addOrga;
       this.setState({addOrga: !doesShow})
     }
 
-    ShowOrgaHandler = () => {
-      this.setState({ContentID:0})
-    }
-
-    AddOrga = (name, URL, LabelIds, OrgaId) => {
+    addOrga = (name, URL, LabelIds, OrgaId) => {
 
       const orgas = [...this.state.Orgas];
       const newOrga = {Orga: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
@@ -43,8 +39,6 @@ class Orgamanager extends Component {
     deleteOrga = (index) =>{
       const orgas = [...this.state.Orgas];
       orgas.splice(index, 1)
-      console.log(orgas);
-      //Continue here
       this.setState({Orgas: orgas});
     }
 
@@ -59,17 +53,12 @@ class Orgamanager extends Component {
         return (
             <div>
                {this.state.Labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>))}
-                <div className="filter"></div>
                 <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
-                <button className={styles.Button} onClick={this.ToggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder labels={this.state.Labels} show={this.state.addOrga} hide={this.ToggleOrgaAdder} click={this.AddOrga}/>
+                <button className={styles.Button} onClick={this.toggleOrgaAdder}>Add Organisation</button>
+                <OrgaAdder labels={this.state.Labels} show={this.state.addOrga} hide={this.toggleOrgaAdder} click={this.addOrga}/>
             </div>
         );
     }
   }
 
 export default Orgamanager;
-
-
-
-//{this.state.Labels.map((label) => { return (<button  name={label.name} className={styles.Button} key={label.id} onClick={()=>this.activateFilter(label.id)}>{label.name}</button>);
