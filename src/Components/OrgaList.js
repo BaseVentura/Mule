@@ -11,10 +11,10 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
               
               var labels = Labels.filter((label)=> orga.LabelIds.includes(label.id));
               
-              const filtered = labels.some(label=> filter.includes(label.id))  
+              const inFilter = labels.some(label=> filter.includes(label.id))  
               
               return (
-              filtered || filter.length===0 ? <Organisation
+              inFilter || filter.length===0 ? <Organisation
                 name = {orga.name}
                 url ={orga.URL}
                 labels = {labels}
