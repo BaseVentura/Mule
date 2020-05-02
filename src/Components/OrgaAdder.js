@@ -42,12 +42,12 @@ function OrgaAdder({labels,hide,click,show}) {
                     </div>
                     <div> 
                     {labels.map(
-                        (label, ix )=>  (<LabelControl 
+                        ({name, id}, ix )=>  (<LabelControl 
                             labelIds={Label} 
-                            LabelName={label.name} 
-                            key={label.id} 
-                            id={label.id}  
-                            clicked={(event)=> buildLabel(label.id)}/>
+                            LabelName={name} 
+                            key={id} 
+                            id={id}  
+                            clicked={(event)=> buildLabel(id)}/>
                             )
                         
                         )
