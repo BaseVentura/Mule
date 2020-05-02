@@ -9,13 +9,13 @@ function OrgaList({Labels,Orgas,filter,clickDelete}) {
         <div >
             {Orgas.map((orga) => {
               
-              var labels = Labels.filter((e)=> orga.LabelIds.includes(e.id));
+              var labels = Labels.filter((label)=> orga.LabelIds.includes(label.id));
               
-              const filtered = labels.some(l=> filter.includes(l.id))  
+              const filtered = labels.some(label=> filter.includes(label.id))  
               
               return (
               filtered || filter.length===0 ? <Organisation
-                orga = {orga.Orga}
+                name = {orga.name}
                 url ={orga.URL}
                 labels = {labels}
                 key={orga.Id}
