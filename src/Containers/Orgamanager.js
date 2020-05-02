@@ -7,9 +7,9 @@ import LabelControl from '../Components/LabelControl';
 class Orgamanager extends Component {
     
     state = { Orgas:[
-        {Orga: "Stadtacker GI", URL: "http://orga1.org", LabelIds: [1], Id:0},
-        {Orga: "Freiwilligen Zentrum", URL: "http://orga2.org", LabelIds: [0],Id:1},
-        {Orga: "Friedelhausen", URL: "http://orga3.org", LabelIds: [0,1], Id:2}],
+        {name: "Stadtacker GI", URL: "http://orga1.org", LabelIds: [1], Id:0},
+        {name: "Freiwilligen Zentrum", URL: "http://orga2.org", LabelIds: [0],Id:1},
+        {name: "Friedelhausen", URL: "http://orga3.org", LabelIds: [0,1], Id:2}],
         Labels:[
           {name: "Soziales", id: 0},
           {name: "Umwelt", id: 1},
@@ -30,7 +30,7 @@ class Orgamanager extends Component {
     addOrga = (name, URL, LabelIds, OrgaId) => {
 
       const orgas = [...this.state.Orgas];
-      const newOrga = {Orga: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
+      const newOrga = {name: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
   
       orgas.push(newOrga);
   
