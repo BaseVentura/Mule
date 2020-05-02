@@ -12,7 +12,7 @@ function OrgaAdder({labels,hide,click,show}) {
     
     const buildLabel = (newlabel) => {
         Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
-        console.log(Label);
+        
     }
     const selectLabel = (label) => {
         const newlabelArr = [...Label]
@@ -21,9 +21,8 @@ function OrgaAdder({labels,hide,click,show}) {
     }
     const deselectLabel = (label) => {
         const newlabelArr = [...Label]
-        newlabelArr.splice(newlabelArr.indexOf(label));
+        newlabelArr.splice(newlabelArr.indexOf(label),1);
         setLabel(newlabelArr);
-        console.log("deselect");
     }
 
     return (
