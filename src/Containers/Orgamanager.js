@@ -19,7 +19,6 @@ class Orgamanager extends Component {
         {name: "Politik", id: 3}
       ],
       showOrgaAdder: false,
-      ContentID: 0,
       activeFilterID: [],
     }
   
@@ -36,13 +35,14 @@ class Orgamanager extends Component {
   
       this.setState({Orgas: orgas});
     }
+
     deleteOrga = (index) =>{
       const orgas = [...this.state.Orgas];
       orgas.splice(index, 1)
       this.setState({Orgas: orgas});
     }
 
-    activateFilter = (filter) => {
+    updateFilterArray = (filter) => {
       const Filter = [...this.state.activeFilterID];
       !Filter.includes(filter)? Filter.push(filter) : Filter.splice(Filter.indexOf(filter),1);
       this.setState({activeFilterID: Filter})
@@ -52,7 +52,7 @@ class Orgamanager extends Component {
       
         return (
             <div>
-               {this.state.Labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.activateFilter(label.id)}/>))}
+               {this.state.Labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
                 <button className={styles.Button} onClick={this.toggleOrgaAdder}>Add Organisation</button>
                 <OrgaAdder labels={this.state.Labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
