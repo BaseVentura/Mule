@@ -7,12 +7,12 @@ import LabelControl from '../Components/LabelControl';
 class Orgamanager extends Component {
     
     state = { 
-      Orgas:[
+      orgas:[
         {name: "Stadtacker GI", URL: "http://orga1.org", LabelIds: [1], Id:0},
         {name: "Freiwilligen Zentrum", URL: "http://orga2.org", LabelIds: [0],Id:1},
         {name: "Friedelhausen", URL: "http://orga3.org", LabelIds: [0,1], Id:2}
       ],
-      Labels:[
+      labels:[
         {name: "Soziales", id: 0},
         {name: "Umwelt", id: 1},
         {name: "Mobilität", id: 2},
@@ -28,18 +28,18 @@ class Orgamanager extends Component {
 
     addOrga = (name, URL, LabelIds, OrgaId) => {
 
-      const orgas = [...this.state.Orgas];
+      const orgas = [...this.state.orgas];
       const newOrga = {name: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
   
       orgas.push(newOrga);
   
-      this.setState({Orgas: orgas});
+      this.setState({orgas: orgas});
     }
 
     deleteOrga = (index) =>{
-      const orgas = [...this.state.Orgas];
+      const orgas = [...this.state.orgas];
       orgas.splice(index, 1)
-      this.setState({Orgas: orgas});
+      this.setState({orgas: orgas});
     }
 
     updateFilterArray = (filter) => {
@@ -52,10 +52,10 @@ class Orgamanager extends Component {
       
         return (
             <div>
-               {this.state.Labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
-                <OrgaList Labels= {this.state.Labels} Orgas={this.state.Orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
+               {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
+                <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
                 <button className={styles.Button} onClick={this.toggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder labels={this.state.Labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
+                <OrgaAdder labels={this.state.labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
             </div>
         );
     }
