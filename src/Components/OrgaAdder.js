@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './OrgaAdder.module.css'
 import LabelControl from './LabelControl';
+import PropTypes from 'prop-types';
 
 function OrgaAdder({labels,hide,click,show}) {
 
@@ -12,7 +13,7 @@ function OrgaAdder({labels,hide,click,show}) {
     
     const buildLabel = (newlabel) => {
         Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
-        
+
     }
     const selectLabel = (label) => {
         const newlabelArr = [...Label]
@@ -57,6 +58,13 @@ function OrgaAdder({labels,hide,click,show}) {
             </div>
         </div>
     );
+}
+
+OrgaAdder.propTypes = {
+    labels: PropTypes.array.isRequired,
+    hide: PropTypes.func.isRequired,
+    click: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired
 }
 
 export default OrgaAdder;
