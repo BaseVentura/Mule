@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import OrgaList from '../Components/OrgaList';
-import styles from '../App.module.css'
 import OrgaAdder from '../Components/OrgaAdder';
 import LabelControl from '../Components/LabelControl';
+import styles from '../App.module.css'
 
 class Orgamanager extends Component {
     
@@ -51,11 +51,14 @@ class Orgamanager extends Component {
     render() {
       
         return (
-            <div>
+            <div className="Filters">
+               <div className="Filters">
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
-                <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
-                <button className={styles.Button} onClick={this.toggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder labels={this.state.labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
+                </div>
+                <div>
+                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
+                  <OrgaAdder labels={this.state.labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
+                </div>
             </div>
         );
     }
