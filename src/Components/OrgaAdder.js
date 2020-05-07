@@ -13,6 +13,7 @@ function OrgaAdder({labels,hide,click,show}) {
     
     const buildLabel = (newlabel) => {
         Label.includes(newlabel) ? deselectLabel(newlabel) : selectLabel(newlabel);
+
     }
     const selectLabel = (label) => {
         const newlabelArr = [...Label]
@@ -21,7 +22,7 @@ function OrgaAdder({labels,hide,click,show}) {
     }
     const deselectLabel = (label) => {
         const newlabelArr = [...Label]
-        newlabelArr.splice(newlabelArr.indexOf(label));
+        newlabelArr.splice(newlabelArr.indexOf(label),1);
         setLabel(newlabelArr);
     }
 
@@ -41,12 +42,12 @@ function OrgaAdder({labels,hide,click,show}) {
                     </div>
                     <div> 
                     {labels.map(
-                        (label, ix )=>  (<LabelControl 
+                        ({name, id}, ix )=>  (<LabelControl 
                             labelIds={Label} 
-                            LabelName={label.name} 
-                            key={label.id} 
-                            id={label.id}  
-                            clicked={(event)=> buildLabel(label.id)}/>
+                            LabelName={name} 
+                            key={id} 
+                            id={id}  
+                            clicked={(event)=> buildLabel(id)}/>
                             )
                         
                         )
