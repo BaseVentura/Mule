@@ -1,13 +1,13 @@
 import React from 'react';
 import Organisation from './Organisation'
 import PropTypes from 'prop-types';
-// import styles from '../App.module.css'
+import styles from '../App.module.css'
 
 
 function OrgaList({labels,orgas,filter,clickDelete}) {
   //  let label=null;
     return (
-        <div >
+        <div className={styles.content}>
             {orgas.map((orga) => {
               
               const activeLabels = labels.filter((label)=> orga.LabelIds.includes(label.id));
@@ -28,7 +28,7 @@ function OrgaList({labels,orgas,filter,clickDelete}) {
       );
 }
 OrgaList.propTypes={
-  Orgas: PropTypes.arrayOf(PropTypes.object).isRequired,
+  orgas: PropTypes.arrayOf(PropTypes.object).isRequired,
   filter: PropTypes.arrayOf(PropTypes.number).isRequired,
   clickDelete: PropTypes.func,
   Labels: PropTypes.arrayOf(PropTypes.object)
