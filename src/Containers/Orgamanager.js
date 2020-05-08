@@ -35,20 +35,12 @@ class Orgamanager extends Component {
       this.setState({orgas: orgas});
     }
 
-    deleteOrga = (index) =>{
-      //hier muss ich die posidtion der Orga mit der entsprechenden ID finden
+    deleteOrga = (id) =>{
       const orgas = [...this.state.orgas];
-
-      // Das war der erste Versuch:
-      // const targetOrga = orgas.filter(orga => {
-      //   console.log("id: "+orga.Id);
-      //   console.log("index: "+index);
-      //   return orga.Id===index})
-      // console.log("targetOrga:"+targetOrga.Id);
+      const targetOrga = orgas.find(orga => orga.Id===id)
       
-      orgas.splice(index, 1)
+      orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
-      //console.log("deleteOrga mit:"+targetOrga.Id);
     }
 
     updateFilterArray = (filter) => {
