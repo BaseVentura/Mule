@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import OrgaList from '../Components/OrgaList';
-import OrgaAdder from '../Components/OrgaAdder';
 import LabelControl from '../Components/LabelControl';
-import styles from '../App.module.css'
+// import styles from '../App.module.css'
 
 class Orgamanager extends Component {
     
@@ -37,9 +36,19 @@ class Orgamanager extends Component {
     }
 
     deleteOrga = (index) =>{
+      //hier muss ich die posidtion der Orga mit der entsprechenden ID finden
       const orgas = [...this.state.orgas];
+
+      // Das war der erste Versuch:
+      // const targetOrga = orgas.filter(orga => {
+      //   console.log("id: "+orga.Id);
+      //   console.log("index: "+index);
+      //   return orga.Id===index})
+      // console.log("targetOrga:"+targetOrga.Id);
+      
       orgas.splice(index, 1)
       this.setState({orgas: orgas});
+      //console.log("deleteOrga mit:"+targetOrga.Id);
     }
 
     updateFilterArray = (filter) => {
@@ -56,8 +65,7 @@ class Orgamanager extends Component {
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div>
-                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
-                  <OrgaAdder labels={this.state.labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
+                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
                 </div>
             </div>
         );
