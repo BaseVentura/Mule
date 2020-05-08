@@ -2,9 +2,10 @@ import React from 'react';
 import Organisation from './Organisation'
 import PropTypes from 'prop-types';
 import styles from '../App.module.css'
+import OrgaAdder from './OrgaAdder'
 
 
-function OrgaList({labels,orgas,filter,clickDelete}) {
+function OrgaList({labels,orgas,filter,clickDelete,addOrga}) {
   //  let label=null;
     return (
         <div className={styles.content}>
@@ -24,6 +25,7 @@ function OrgaList({labels,orgas,filter,clickDelete}) {
                 /> : null
               );  
             })}
+            <OrgaAdder labels={labels} click={addOrga}/>
         </div>
       );
 }
