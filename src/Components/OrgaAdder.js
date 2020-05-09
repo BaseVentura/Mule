@@ -35,7 +35,7 @@ function OrgaAdder({labels,click}) {
                     <div>   
                         <input onChange={(event)=> setURL(event.target.value)} type="text" placeholder="Enter URL"></input>
                     </div>
-                    <div> 
+                    <div className={styles.Labels}> 
                     {labels.map(
                         ({name, id}, ix )=>  (<LabelControl 
                             labelIds={Label} 
