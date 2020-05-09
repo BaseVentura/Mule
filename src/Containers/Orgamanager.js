@@ -15,7 +15,10 @@ class Orgamanager extends Component {
         {name: "Soziales", id: 0},
         {name: "Umwelt", id: 1},
         {name: "Mobilität", id: 2},
-        {name: "Politik", id: 3}
+        {name: "Politik", id: 3},
+        {name: "Kultur", id: 4},
+        {name: "Interkulturelles", id: 5},
+        {name: "Senioren Hilfe", id: 6}
       ],
       showOrgaAdder: false,
       activeFilterID: [],
