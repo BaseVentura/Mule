@@ -3,15 +3,17 @@
 }
 
 .Title{
-  background-color: #88BA2A;
+  /* background-color: #88BA2A; */
   /* min-height: 100vh; */
   display: flex;
+  color: #88BA2A;
+  border-bottom: 2px solid #88BA2A;
   height: 20%;
   flex-direction: column;
   align-items: left;
+  text-align: left;
   justify-content: left;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 .content{
   display: flex;
