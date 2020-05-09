@@ -13,9 +13,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.Content{
+.content{
   display: flex;
   flex-flow: wrap;
+  justify-content: flex-start;
 }
 .OrgaList{
   width: 90%;

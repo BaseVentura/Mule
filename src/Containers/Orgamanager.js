@@ -52,11 +52,11 @@ class Orgamanager extends Component {
     render() {
       
         return (
-            <div className="Filters">
+            <div className="Content">
                <div className="Filters">
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
-                <div>
+                <div className="OrgaManagerContent">
                   <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
                 </div>
             </div>
