@@ -15,6 +15,11 @@
     color: darkgreen;
     
   }
+.Labels{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+}
 	
 .modal { /* Hidden by default */
     position: fixed; /* Stay in place */
