@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import OrgaList from '../Components/OrgaList';
-import LabelControl from '../Components/LabelControl';
+import OrgaList from '../Components/Organisations/OrgaList/OrgaList';
+import LabelControl from '../Components/Categories/LabelControl';
 
 import style from './Orgamanager.module.css'
 // import styles from '../App.module.css'

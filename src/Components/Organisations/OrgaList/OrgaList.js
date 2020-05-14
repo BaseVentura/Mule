@@ -1,8 +1,8 @@
 import React from 'react';
-import Organisation from './Organisation'
+import Organisation from '../Organisation/Organisation'
 import PropTypes from 'prop-types';
-import styles from '../App.module.css'
-import OrgaAdder from './OrgaAdder'
+import styles from './Orgalist.module.css'
+import OrgaAdder from '../../OrgaAdder/OrgaAdder'
 
 
 function OrgaList({labels,orgas,filter,clickDelete,addOrga}) {
