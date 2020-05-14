@@ -13,7 +13,7 @@ function Organisation({name,clickDelete,id,url,labels}) {
         <Aux>
             <Modal show={showModal}> 
                 <p>Delete {name} ? </p>
-                <button onClick={()=>clickDelete(id)}>Yes</button>
+                {/* <button onClick={()=>clickDelete(id)}>Yes</button> wenn ich das so mache wird die falche id genommen!! */}
                 <button onClick={()=>setShowModal(false)}>Cancel</button>
             </Modal>
             <div className ={style.Orga}>
