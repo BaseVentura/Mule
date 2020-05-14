@@ -1,12 +1,24 @@
 .OrgaAdder{
-    position: relative;
-    width: 20%;
-    margin : 15px auto;
+    margin : 10px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
-    padding: 16px;
+    padding: 15px;
     text-align: center;
-    z-index: 1;
+    width: 20%;
+}
+
+.Title {
+    left: 8px;
+    top: 50%;
+    font-size: 24px;
+    margin-top: -11px;
+    color: darkgreen;
+    
+  }
+.Labels{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
 }
 	
 .modal { /* Hidden by default */

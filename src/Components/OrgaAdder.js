@@ -3,9 +3,7 @@ import styles from './OrgaAdder.module.css'
 import LabelControl from './LabelControl';
 import PropTypes from 'prop-types';
 
-function OrgaAdder({labels,hide,click,show}) {
-
-    const showHideClassName = show ? styles.showDiv : styles.hideDiv;
+function OrgaAdder({labels,click}) {
     
     const [name,setName] = useState();
     const [URL,setURL] = useState();
@@ -27,11 +25,8 @@ function OrgaAdder({labels,hide,click,show}) {
     }
 
     return (
-        <div className={showHideClassName}>
-            <div className={styles.modal}>
-                <div className={styles.modalContent}>    
-                    <div className={styles.modalHeader}>
-                        <span className={styles.close} onClick={hide}>×</span>
+            <div className={styles.OrgaAdder}>   
+                    <div className={styles.Title}>
                         Organisation hinzufügen     
                     </div>
                     <div>
@@ -40,7 +35,7 @@ function OrgaAdder({labels,hide,click,show}) {
                     <div>   
                         <input onChange={(event)=> setURL(event.target.value)} type="text" placeholder="Enter URL"></input>
                     </div>
-                    <div> 
+                    <div className={styles.Labels}> 
                     {labels.map(
                         ({name, id}, ix )=>  (<LabelControl 
                             labelIds={Label} 
@@ -49,22 +44,18 @@ function OrgaAdder({labels,hide,click,show}) {
                             id={id}  
                             clicked={(event)=> buildLabel(id)}/>
                             )
-                        
                         )
                     }
                     </div>
                     <button onClick={()=>click(name, URL, Label, Date.now())}>Add</button> 
-                </div>
+                
             </div>
-        </div>
     );
 }
 
 OrgaAdder.propTypes = {
     labels: PropTypes.array.isRequired,
-    hide: PropTypes.func.isRequired,
     click: PropTypes.func.isRequired,
-    show: PropTypes.bool.isRequired
 }
 
 export default OrgaAdder;

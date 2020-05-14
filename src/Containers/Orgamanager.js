@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import OrgaList from '../Components/OrgaList';
-import styles from '../App.module.css'
-import OrgaAdder from '../Components/OrgaAdder';
 import LabelControl from '../Components/LabelControl';
+
+import style from './Orgamanager.module.css'
+// import styles from '../App.module.css'
 
 class Orgamanager extends Component {
     
@@ -16,7 +17,10 @@ class Orgamanager extends Component {
         {name: "Soziales", id: 0},
         {name: "Umwelt", id: 1},
         {name: "Mobilität", id: 2},
-        {name: "Politik", id: 3}
+        {name: "Politik", id: 3},
+        {name: "Kultur", id: 4},
+        {name: "Interkulturelles", id: 5},
+        {name: "Senioren Hilfe", id: 6}
       ],
       showOrgaAdder: false,
       activeFilterID: [],
@@ -36,9 +40,11 @@ class Orgamanager extends Component {
       this.setState({orgas: orgas});
     }
 
-    deleteOrga = (index) =>{
+    deleteOrga = (id) =>{
       const orgas = [...this.state.orgas];
-      orgas.splice(index, 1)
+      const targetOrga = orgas.find(orga => orga.Id===id)
+      
+      orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
     }
 
@@ -51,11 +57,13 @@ class Orgamanager extends Component {
     render() {
       
         return (
-            <div>
+            <div className={style.Orgamanager}>
+               <div className="Filters">
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
-                <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga}/>
-                <button className={styles.Button} onClick={this.toggleOrgaAdder}>Add Organisation</button>
-                <OrgaAdder labels={this.state.labels} show={this.state.showOrgaAdder} hide={this.toggleOrgaAdder} click={this.addOrga}/>
+                </div>
+                <div className="OrgaManagerContent">
+                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
+                </div>
             </div>
         );
     }
