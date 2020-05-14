@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import OrgaList from '../Components/OrgaList';
 import LabelControl from '../Components/LabelControl';
+
+import style from './Orgamanager.module.css'
 // import styles from '../App.module.css'
 
 class Orgamanager extends Component {
@@ -55,7 +57,7 @@ class Orgamanager extends Component {
     render() {
       
         return (
-            <div className="Content">
+            <div className={style.Orgamanager}>
                <div className="Filters">
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
