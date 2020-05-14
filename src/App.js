@@ -8,7 +8,9 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        <div className={styles.Title}>Volunteer Manager</div>
+        <div className={styles.Header}>
+          <div className={styles.Title}>Volunteer Manager</div>
+        </div>
         <Orgamanager/>
       </div>
     );
