@@ -47,6 +47,8 @@ class Orgamanager extends Component {
       const orgas = [...this.state.orgas];
       const targetOrga = orgas.find(orga => orga.Id===id)
       
+      console.log("Delete Orga:"+id)
+
       orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
     }
@@ -75,7 +77,7 @@ class Orgamanager extends Component {
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div className="OrgaManagerContent">
-                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrgaHandler} addOrga={this.addOrga}/>
+                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
                 </div>
             </div>
           </Aux>
