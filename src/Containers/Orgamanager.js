@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import OrgaList from '../Components/Organisations/OrgaList/OrgaList';
 import LabelControl from '../Components/Categories/LabelControl';
+import Modal from '../Components/UI/Modal/Modal'
+import Aux from '../hoc/Aux'
 
 import style from './Orgamanager.module.css'
 // import styles from '../App.module.css'
@@ -24,6 +26,7 @@ class Orgamanager extends Component {
       ],
       showOrgaAdder: false,
       activeFilterID: [],
+      showDeleteOrgaModal: false
     }
   
     toggleOrgaAdder = () => { 
@@ -47,6 +50,10 @@ class Orgamanager extends Component {
       orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
     }
+    deleteOrgaHandler  (id) {
+      this.setState({showDeleteOrgaModal: true})
+      //deleteOrga();
+    }
 
     updateFilterArray = (filter) => {
       const Filter = [...this.state.activeFilterID];
@@ -57,14 +64,21 @@ class Orgamanager extends Component {
     render() {
       
         return (
+          <Aux>
             <div className={style.Orgamanager}>
+              <Modal show={this.state.showDeleteOrgaModal}>
+                <p>Delete Organisation?</p>                
+                <button onClick={this.deleteOrga}>Yes</button>
+                <button onClick={()=>this.setState({showDeleteOrgaModal: false})}>No</button>
+              </Modal>
                <div className="Filters">
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div className="OrgaManagerContent">
-                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
+                  <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrgaHandler} addOrga={this.addOrga}/>
                 </div>
             </div>
+          </Aux>
         );
     }
   }
