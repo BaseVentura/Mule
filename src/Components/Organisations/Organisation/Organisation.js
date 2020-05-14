@@ -5,12 +5,19 @@ import Aux from '../../../hoc/Aux'
 import Modal from '../../UI/Modal/Modal'
 
 function Organisation({name,clickDelete,id,url,labels}) {
-    
+    const [showModal,setShowModal] = React.useState(false);
+    function handleClick (){
+        setShowModal(true);
+    }
     return (
         <Aux>
-            {/* <Modal show> Modal in Organisation</Modal> */}
+            <Modal show={showModal}> 
+                <p>Delete {name} ? </p>
+                <button onClick={()=>clickDelete(id)}>Yes</button>
+                <button onClick={()=>setShowModal(false)}>Cancel</button>
+            </Modal>
             <div className ={style.Orga}>
-                <div className={style.Title}>{name}<span className={style.close} onClick={()=> clickDelete(id)}>×</span></div>
+                <div className={style.Title}>{name}<span className={style.close} onClick={()=> handleClick()}>×</span></div>
                 <p>Website: <a href={url}>  {url}</a></p>
                 <span>
                     {labels.map((label)=>{return (<div className={style.Badge} key={label.id}>{label.name}</div>);})}
