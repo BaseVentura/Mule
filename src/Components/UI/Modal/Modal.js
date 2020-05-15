@@ -1,9 +1,12 @@
 import React from 'react';
+
 import style from './Modal.module.css'
+
+
 
 function Modal({children,show}) {
     return (
-        <div 
+            <div 
                 className={style.Modal}
                 style={{
                     transform: show ? 'trasnlateY(0)' : 'trasnlateY(-100vh)',
