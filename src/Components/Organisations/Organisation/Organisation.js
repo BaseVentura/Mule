@@ -3,17 +3,18 @@ import style from './Organisation.module.css'
 import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux'
 import Modal from '../../UI/Modal/Modal'
+import Backdrop from '../../UI/Backdrop/Backdrop'
 
 function Organisation({ name, clickDelete, id, url, labels }) {
     const [showModal, setShowModal] = React.useState(false);
     
     return (
         <Aux>
-            {showModal ? <Modal show={showModal}>
+            {showModal ? <Aux><Backdrop show={showModal} clicked={() => setShowModal(false)}/> <Modal show={showModal}>
                 <p>Delete {name} ? </p>
                 <button onClick={() => clickDelete(id)}>Yes</button>
                 <button onClick={() => setShowModal(false)}>Cancel</button>
-            </Modal> : null}
+            </Modal></Aux> : null}
             <div className={style.Orga}>
                 <div className={style.Title}>{name}<span className={style.close} onClick={() => setShowModal(true)}>×</span></div>
                 <p>Website: <a href={url}>  {url}</a></p>
