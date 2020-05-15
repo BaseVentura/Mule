@@ -3,20 +3,6 @@
   align-content: center;
   margin: auto;
 }
-
-.Title{
-  /* background-color: #88BA2A; */
-  /* min-height: 100vh; */
-  display: flex;
-  color: white;
-  height: 20%;
-  flex-direction: column;
-  align-items: left;
-  text-align: left;
-  justify-content: left;
-  left: 0px;
-  font-size: calc(10px + 2vmin);
-}
 .OrgaList{
   width: 90%;
     margin : 15px auto;
@@ -24,17 +10,6 @@
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
-}
-
-.Header {
-  background-color: #88BA2A;
-  /* min-height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .Button{
