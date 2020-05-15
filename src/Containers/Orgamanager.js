@@ -68,7 +68,7 @@ class Orgamanager extends Component {
         return (
           <Aux>
             <div className={style.Orgamanager}>
-               <div className="Filters">
+               <div className={style.FilterBar}>
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div className="OrgaManagerContent">

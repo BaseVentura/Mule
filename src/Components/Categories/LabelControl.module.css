@@ -10,12 +10,13 @@
     text-align: center;
     border-radius: 2px;
     cursor: pointer;
+    border: 1px solid #88BA2A;
   }
   .BadgeActive {
     display: inline-block;
     right: 16px;
     font-size: 16px;
-    color: white;
+    /* color: white; */
     top: 50%;
     margin: 2px; 
     background-color: #88BA2A;
