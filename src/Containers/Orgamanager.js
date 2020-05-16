@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import OrgaList from '../Components/OrgaList';
-import LabelControl from '../Components/LabelControl';
+
+import OrgaList from '../Components/Organisations/OrgaList/OrgaList';
+import LabelControl from '../Components/Categories/LabelControl';
+import Aux from '../hoc/Aux'
 
 import style from './Orgamanager.module.css'
-// import styles from '../App.module.css'
+
 
 class Orgamanager extends Component {
     
@@ -22,8 +24,10 @@ class Orgamanager extends Component {
         {name: "Interkulturelles", id: 5},
         {name: "Senioren Hilfe", id: 6}
       ],
+      job: [{name: "", description: "", startingDate: "", id:0, OrgaId: 0 }],
       showOrgaAdder: false,
       activeFilterID: [],
+      showDeleteOrgaModal: false
     }
   
     toggleOrgaAdder = () => { 
@@ -44,8 +48,14 @@ class Orgamanager extends Component {
       const orgas = [...this.state.orgas];
       const targetOrga = orgas.find(orga => orga.Id===id)
       
+      console.log("Delete Orga:"+id)
+
       orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
+    }
+    deleteOrgaHandler  (id) {
+      this.setState({showDeleteOrgaModal: true})
+      //deleteOrga();
     }
 
     updateFilterArray = (filter) => {
@@ -57,14 +67,16 @@ class Orgamanager extends Component {
     render() {
       
         return (
+          <Aux>
             <div className={style.Orgamanager}>
-               <div className="Filters">
+               <div className={style.FilterBar}>
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div className="OrgaManagerContent">
                   <OrgaList labels= {this.state.labels} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
                 </div>
             </div>
+          </Aux>
         );
     }
   }

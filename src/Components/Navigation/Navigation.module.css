@@ -1,0 +1,22 @@
+.Navigation {
+    background-color: #88BA2A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    height: 50px;
+  }
+
+  .Title{
+    display: flex;
+    color: white;
+    height: 20%;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+    left: 0px;
+    font-size: calc(10px + 2vmin);
+  }

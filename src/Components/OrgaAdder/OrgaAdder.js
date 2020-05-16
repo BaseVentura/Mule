@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './OrgaAdder.module.css'
-import LabelControl from './LabelControl';
+import LabelControl from '../Categories/LabelControl';
 import PropTypes from 'prop-types';
 
 function OrgaAdder({labels,click}) {

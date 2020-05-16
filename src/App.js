@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+
 import styles from './App.module.css'
+
 import Orgamanager from './Containers/Orgamanager';
+import Navigation from './Components/Navigation/Navigation'
 
 class App extends Component {
   
@@ -8,7 +11,7 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        <div className={styles.Title}>Volunteer Manager</div>
+        <Navigation/>
         <Orgamanager/>
       </div>
     );

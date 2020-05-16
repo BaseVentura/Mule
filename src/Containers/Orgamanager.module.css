@@ -1,4 +1,8 @@
 .Orgamanager{
     width: 90%;
-    align-content: center;
+    margin: auto;
+    top: 0px;
+}
+.FilterBar{
+    margin: 10px;
 }
