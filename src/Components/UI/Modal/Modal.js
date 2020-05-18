@@ -9,7 +9,7 @@ function Modal({children,show}) {
             <div 
                 className={style.Modal}
                 style={{
-                    transform: show ? 'trasnlateY(0)' : 'trasnlateY(-100vh)',
+                    transform: show ? 'translateY(0)' : 'translateY(-100vh)',
                     opacity: show ? '1' : '0' 
                 }}
                 >

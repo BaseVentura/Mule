@@ -10,11 +10,11 @@ function Organisation({ name, clickDelete, id, url, labels }) {
     
     return (
         <Aux>
-            {showModal ? <Aux><Backdrop show={showModal} clicked={() => setShowModal(false)}/> <Modal show={showModal}>
+             <Aux><Backdrop show={showModal} clicked={() => setShowModal(false)}/> <Modal show={showModal}>
                 <p>Delete {name} ? </p>
                 <button onClick={() => clickDelete(id)}>Yes</button>
                 <button onClick={() => setShowModal(false)}>Cancel</button>
-            </Modal></Aux> : null}
+            </Modal></Aux> 
             <div className={style.Orga}>
                 <div className={style.Title}>{name}<span className={style.close} onClick={() => setShowModal(true)}>×</span></div>
                 <p>Website: <a href={url}>  {url}</a></p>
