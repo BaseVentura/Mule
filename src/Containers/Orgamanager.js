@@ -24,6 +24,7 @@ class Orgamanager extends Component {
         {name: "Interkulturelles", id: 5},
         {name: "Senioren Hilfe", id: 6}
       ],
+      job: [{name: "", description: "", startingDate: "", id:0, OrgaId: 0 }],
       showOrgaAdder: false,
       activeFilterID: [],
       showDeleteOrgaModal: false
