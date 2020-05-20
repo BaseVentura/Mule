@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './App.module.css'
 
-import Orgamanager from './Containers/Orgamanager';
+import JobManager from './Containers/JobManager';
 import Navigation from './Components/Navigation/Navigation'
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className={styles.App}>
         <Navigation/>
-        <Orgamanager/>
+        <JobManager/>
       </div>
     );
   }
