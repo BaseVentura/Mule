@@ -27,7 +27,7 @@ class JobManager extends Component {
       ],
       jobs: [
         {name: "Erntehelfer", description: "random description", startingDate: "",LabelIds: [1], id:0, OrgaId: 0 },
-        {name: "Kursbetreuung", description: "random description", startingDate: "",LabelIds: [0], id:0, OrgaId: 1}],
+        {name: "Kursbetreuung", description: "random description", startingDate: "",LabelIds: [0], id:1, OrgaId: 1}],
       showOrgaAdder: false,
       activeFilterID: [],
       showDeleteOrgaModal: false
