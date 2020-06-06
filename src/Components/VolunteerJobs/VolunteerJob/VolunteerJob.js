@@ -15,7 +15,7 @@ function VolunteerJob({ name, clickDelete, id, orga, labels, description }) {
                 <button onClick={() => clickDelete(id)}>Yes</button>
                 <button onClick={() => setShowModal(false)}>Cancel</button>
             </Modal></Aux> 
-            <div className={style.Orga}>
+            <div className={style.Job}>
                 <div className={style.Title}>{name}<span className={style.close} onClick={() => setShowModal(true)}>×</span></div>
                 <p>{description}</p>
                 <p>Organisation: {orga.name}</p>
