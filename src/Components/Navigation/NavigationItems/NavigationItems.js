@@ -5,7 +5,8 @@ import style from './NavigationItems.module.css'
 function NavigationItems(props) {
     return (
         <ul className={style.NavigationItems}>
-            <NavigationItem link="/" active>Organistions</NavigationItem>
+            <NavigationItem link="/" active>Jobs</NavigationItem>
+            <NavigationItem link="/">Orgas</NavigationItem>
             <NavigationItem link="/">People</NavigationItem>
         </ul>
     );
