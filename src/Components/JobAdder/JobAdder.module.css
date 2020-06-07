@@ -1,0 +1,99 @@
+.JobAdder{
+    margin : 5px;
+    border: 1px solid #90B9C6;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    flex-grow: 0;
+    background-color: #A0CCDA;
+}
+
+.Title {
+    left: 8px;
+    top: 50%;
+    font-size: 24px;
+    margin-top: -11px;
+    /* color: darkgreen; */
+    
+  }
+.Labels{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+}
+	
+.modal { /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modalContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: auto 20px ;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modalHeader {
+    padding: 2px 16px;
+    background-color: #88BA2A;
+    color: white;
+}
+.close {
+    color: white;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.showDiv {
+    display: block;
+  }
+   
+  .hideDiv {
+    display: none;
+  }
+.Badge {
+    display: inline-block;
+    right: 16px;
+    height: 24px;
+    font-size: 16px;
+    color: white;
+    width: 15%;
+    top: 50%;
+    margin: 10px;
+    background-color: #282c34;
+    padding: 4px ;
+    text-align: center;
+    border-radius: 7px;
+}
+.BadgeInactive {
+    display: inline-block;
+    right: 16px;
+    height: 24px;
+    font-size: 16px;
+    color: white;
+    width: 15%;
+    top: 50%;
+    margin: 10px;
+    background-color: #5e6167;
+    padding: 4px ;
+    text-align: center;
+    border-radius: 7px;
+}
