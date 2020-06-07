@@ -37,14 +37,14 @@ class JobManager extends Component {
       this.setState({showOrgaAdder: !this.state.showOrgaAdder})
     }
 
-    addOrga = (name, URL, LabelIds, OrgaId) => {
+    addJob = (name, description, LabelIds, startingDate, OrgaId, JobId) => {
 
-      const orgas = [...this.state.orgas];
-      const newOrga = {name: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
+      const jobs = [...this.state.jobs];
+      const newJob = {name: name, description: description, LabelIds: LabelIds, Id: JobId, OrgaId: OrgaId}
+      console.log(newJob)
+      //jobs.push(newJob);
   
-      orgas.push(newOrga);
-  
-      this.setState({orgas: orgas});
+      //this.setState({orgas: jobs});
     }
 
     deleteOrga = (id) =>{
@@ -76,7 +76,7 @@ class JobManager extends Component {
                {this.state.labels.map((label) =>  (<LabelControl labelIds={this.state.activeFilterID} LabelName={label.name} id={label.id} key={label.id} clicked={()=>this.updateFilterArray(label.id)}/>))}
                 </div>
                 <div className="OrgaManagerContent">
-                  <VolunteerJobList labels= {this.state.labels} jobs={this.state.jobs} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addOrga={this.addOrga}/>
+                  <VolunteerJobList labels= {this.state.labels} jobs={this.state.jobs} orgas={this.state.orgas} filter={this.state.activeFilterID} clickDelete={this.deleteOrga} addJob={this.addJob}/>
                 </div>
             </div>
           </Aux>
