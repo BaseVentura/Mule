@@ -2,10 +2,10 @@ import React from 'react';
 import VolunteerJob from '../VolunteerJob/VolunteerJob'
 import PropTypes from 'prop-types';
 import styles from './VolunteerJobList.module.css'
-import OrgaAdder from '../../OrgaAdder/OrgaAdder'
+import JobAdder from '../../JobAdder/JobAdder'
 
 
-function VolunteerJobList({labels,orgas,filter,clickDelete,addOrga,jobs}) {
+function VolunteerJobList({labels,orgas,filter,clickDelete,addJob,jobs}) {
   //  let label=null;
     return (
         <div className={styles.content}>
@@ -30,7 +30,7 @@ function VolunteerJobList({labels,orgas,filter,clickDelete,addOrga,jobs}) {
                 /> : null
               );  
             })}
-            <OrgaAdder labels={labels} click={addOrga}/>
+            <JobAdder labels={labels} click={addJob} orgas={orgas}/>
         </div>
       );
 }
