@@ -33,3 +33,7 @@
     font-weight: bold;
     cursor: pointer;
 }
+.content{
+  display: flex;
+  
+}
