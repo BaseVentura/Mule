@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import OrgaList from '../Components/Organisations/OrgaList/OrgaList';
 import VolunteerJobList from '../Components/VolunteerJobs/VolunteerJobList/VolunteerJobList';
 import LabelControl from '../Components/Categories/LabelControl';
 import Aux from '../hoc/Aux'
@@ -42,7 +41,7 @@ class JobManager extends Component {
       const jobs = [...this.state.jobs];
       const newJob = {name: name, description: description, LabelIds: LabelIds, Id: JobId, OrgaId: OrgaId}
       console.log(newJob)
-      //jobs.push(newJob);
+      jobs.push(newJob);
   
       //this.setState({orgas: jobs});
     }
