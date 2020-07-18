@@ -19,7 +19,7 @@ function VolunteerJob({ name, clickDelete, id, orga, labels, description }) {
                 <div className={style.Title}>{name}<span className={style.close} onClick={() => setShowModal(true)}>×</span></div>
                 <p>{description}</p>
                 <p>Organisation: {orga.name}</p>
-                <span>
+                <span className={style.label}>
                     {labels.map((label) => { return (<div className={style.Badge} key={label.id}>{label.name}</div>); })}
                 </span>
             </div>
