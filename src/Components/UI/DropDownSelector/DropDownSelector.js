@@ -1,14 +1,10 @@
 import React from 'react';
 import styles from './DropDownSelector.module.css'
 
-function clicked(){
-    console.log("Was clicked");
-    
-}
 
 function DropDownSelector({items}) {
     const [show, setShow] = React.useState(false);
-    const [selectedItem, setSelectedItem] = React.useState("");
+    const [selectedItem, setSelectedItem] = React.useState("Select an organisation");
 
     const selectItem = (item) => {
         setSelectedItem(item.name);
