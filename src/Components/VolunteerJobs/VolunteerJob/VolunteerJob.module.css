@@ -26,6 +26,12 @@
     font-size: 24px;
     margin-top: -11px;
   }
+  .label{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    
+  }
   .close {
     color: darkred;
     float: right;
