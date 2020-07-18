@@ -1,17 +1,19 @@
 .DropDownSelector{
     background-color: white;
-    position: fixed;
+    /* position: absolute; */
     border: 1px solid grey;
     width: 225px;
     
 }
 .DropDownButton{
-  float: right;
+  /* right: 5px; */
   width: 10%;
+  display: inline-block;
 }
 .SelectedItem{
-  float: left;
-  width: 90%;
+  /* position: absolute; */
+  left: 10px;
+  display: inline-block;
   border-bottom: 1px solid black;
 }
 .ArrowDown{
