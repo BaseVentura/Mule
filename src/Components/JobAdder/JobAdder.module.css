@@ -22,6 +22,9 @@
     display: flex;
     flex-flow: wrap;
     justify-content: flex-start;
+    /*position: absolute;*/
+    width: 90%;
+    height: 20%;
 }
 	
 .modal { /* Hidden by default */
