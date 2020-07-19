@@ -27,7 +27,6 @@ function OrgaAdder({labels,click}) {
         setName("");
         setURL("");
         setLabel([]);
-        console.log("Reset");
     }
 
     return (
@@ -53,7 +52,7 @@ function OrgaAdder({labels,click}) {
                         )
                     }
                     </div>
-                    <button onClick={()=> reset()}>Add</button> 
+                    <button onClick={()=> {reset(); click(name, URL, Label, Date.now())}}>Add</button> 
                 
             </div>
     );
