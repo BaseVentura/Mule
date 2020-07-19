@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 function OrgaAdder({labels,click}) {
     
-    const [name,setName] = useState();
-    const [URL,setURL] = useState();
+    const [name,setName] = useState("");
+    const [URL,setURL] = useState("");
     const [Label,setLabel] = useState([]);  
     
     const buildLabel = (newlabel) => {
@@ -23,6 +23,11 @@ function OrgaAdder({labels,click}) {
         newlabelArr.splice(newlabelArr.indexOf(label),1);
         setLabel(newlabelArr);
     }
+    const reset = () => {
+        setName("");
+        setURL("");
+        setLabel([]);
+    }
 
     return (
             <div className={styles.OrgaAdder}>   
@@ -30,10 +35,10 @@ function OrgaAdder({labels,click}) {
                         Organisation hinzufügen     
                     </div>
                     <div>
-                        <input onChange={(event) => setName(event.target.value)} type="text" placeholder="Enter Name"></input>
+                        <input value={name} onChange={(event) => setName(event.target.value)} type="text" placeholder="Enter Name"></input>
                     </div>
                     <div>   
-                        <input onChange={(event)=> setURL(event.target.value)} type="text" placeholder="Enter URL"></input>
+                        <input value={URL} onChange={(event)=> setURL(event.target.value)} type="text" placeholder="Enter URL"></input>
                     </div>
                     <div className={styles.Labels}> 
                     {labels.map(
@@ -47,7 +52,7 @@ function OrgaAdder({labels,click}) {
                         )
                     }
                     </div>
-                    <button onClick={()=>click(name, URL, Label, Date.now())}>Add</button> 
+                    <button onClick={()=> {reset(); click(name, URL, Label, Date.now())}}>Add</button> 
                 
             </div>
     );
