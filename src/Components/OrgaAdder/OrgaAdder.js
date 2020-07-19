@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 function OrgaAdder({labels,click}) {
     
-    const [name,setName] = useState();
-    const [URL,setURL] = useState();
+    const [name,setName] = useState("");
+    const [URL,setURL] = useState("");
     const [Label,setLabel] = useState([]);  
     
     const buildLabel = (newlabel) => {
