@@ -11,8 +11,10 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        <Navigation/>
-        <Orgamanager/>
+        <React.StrictMode>
+          <Navigation/>
+          <Orgamanager/>
+        </React.StrictMode>
       </div>
     );
   }
