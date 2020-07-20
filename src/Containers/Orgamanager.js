@@ -5,6 +5,7 @@ import LabelControl from '../Components/Categories/LabelControl';
 import Aux from '../hoc/Aux'
 
 import style from './Orgamanager.module.css'
+import { createOrga } from '../API';
 
 
 class Orgamanager extends Component {
@@ -42,6 +43,8 @@ class Orgamanager extends Component {
       orgas.push(newOrga);
   
       this.setState({orgas: orgas});
+
+      createOrga(newOrga);
     }
 
     deleteOrga = (id) =>{
