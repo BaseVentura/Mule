@@ -13,14 +13,14 @@ export const getAllOrgas = client.query(q.Paginate(q.Match(q.Ref('indexes/all_or
 export const createOrga = orga => {
     client.query(
         q.Create(q.Collection('Organisations'), {
-            data: { orga}
+            data: orga
         },)
     )
     .then(ret => console.log('Response: ', ret))
     .catch(error => console.error('Error in createOrga: ', error.message));
 };
-export const deleteOrga = orgaId => {
-    client.query(q.Delete(q.Ref(q.Collection('Organisation'), orgaId)))
+export const removeOrga = orgaId => {
+    client.query(q.Delete(q.Ref(q.Collection('Organisations'), orgaId)))
     .then(ret => ret)
     .catch(error => console.error('Error in deleteOrga: ', error.message));
 };
