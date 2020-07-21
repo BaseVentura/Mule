@@ -28,8 +28,9 @@ class Orgamanager extends Component {
     }
     componentDidMount(){
       getAllOrgas.then(res => {
-        console.log(res[0].data.name);
-        const orgas = res.map((item) => item.data);
+        const orgas = res.map((item) => {
+          item.data.Id=item.ref.id;
+          return item.data});
         console.log(orgas);
         this.setState({orgas});
       })
