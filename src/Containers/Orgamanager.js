@@ -5,17 +5,13 @@ import LabelControl from '../Components/Categories/LabelControl';
 import Aux from '../hoc/Aux'
 
 import style from './Orgamanager.module.css'
-import { createOrga } from '../API';
+import { createOrga, getAllOrgas, removeOrga } from '../API/index';
 
 
 class Orgamanager extends Component {
     
     state = { 
-      orgas:[
-        {name: "Stadtacker GI", URL: "http://orga1.org", LabelIds: [1], Id:0},
-        {name: "Freiwilligen Zentrum", URL: "http://orga2.org", LabelIds: [0],Id:1},
-        {name: "Friedelhausen", URL: "http://orga3.org", LabelIds: [0,1], Id:2}
-      ],
+      orgas:[],
       labels:[
         {name: "Soziales", id: 0},
         {name: "Umwelt", id: 1},
@@ -30,15 +26,22 @@ class Orgamanager extends Component {
       activeFilterID: [],
       showDeleteOrgaModal: false
     }
-  
+    componentDidMount(){
+      getAllOrgas.then(res => {
+        console.log(res[0].data.name);
+        const orgas = res.map((item) => item.data);
+        console.log(orgas);
+        this.setState({orgas});
+      })
+    }
     toggleOrgaAdder = () => { 
       this.setState({showOrgaAdder: !this.state.showOrgaAdder})
     }
 
-    addOrga = (name, URL, LabelIds, OrgaId) => {
+    addOrga = (name, URL, LabelIds, Id) => {
 
       const orgas = [...this.state.orgas];
-      const newOrga = {name: name, URL: URL, LabelIds: LabelIds, Id: OrgaId}
+      const newOrga = {name, URL, LabelIds, Id}
   
       orgas.push(newOrga);
   
@@ -55,6 +58,7 @@ class Orgamanager extends Component {
 
       orgas.splice(orgas.indexOf(targetOrga), 1)
       this.setState({orgas: orgas});
+      removeOrga(id)
     }
     deleteOrgaHandler  (id) {
       this.setState({showDeleteOrgaModal: true})
