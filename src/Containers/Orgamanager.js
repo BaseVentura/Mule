@@ -43,19 +43,20 @@ class Orgamanager extends Component {
 
   addOrga = (name, URL, LabelIds, Id) => {
     const orgas = [...this.state.orgas];
-    const newOrga = { name, URL, LabelIds, Id };
+    const newOrga = { name, URL, LabelIds };
 
     orgas.push(newOrga);
 
-    this.setState({ orgas: orgas });
-    createOrga(newOrga);
+    //this.setState({ orgas: orgas });
+
+    createOrga(newOrga).then((ret) => this.setState({ newOrgas: ret }));
   };
 
   deleteOrga = (id) => {
     const orgas = [...this.state.orgas];
     const targetOrga = orgas.find((orga) => orga.Id === id);
 
-    console.log("Delete Orga:" + id);
+    console.log(`Delete Orga:${id}`);
 
     orgas.splice(orgas.indexOf(targetOrga), 1);
     this.setState({ orgas: orgas });
@@ -92,7 +93,7 @@ class Orgamanager extends Component {
           <div className="OrgaManagerContent">
             <OrgaList
               labels={this.state.labels}
-              orgas={this.state.orgas}
+              orgas={this.state.newOrgas}
               filter={this.state.activeFilterID}
               clickDelete={this.deleteOrga}
               addOrga={this.addOrga}
